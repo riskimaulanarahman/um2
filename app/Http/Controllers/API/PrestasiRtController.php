@@ -31,24 +31,29 @@ class PrestasiRtController extends Controller
         $prestasi = Prestasi::select('tbl_prestasi.*','users.name')
         ->join('users','users.id_users','tbl_prestasi.id_users')
         ->where('users.nomor_rt',$user->nomor_rt)
+        // ->where('tbl_prestasi.status',"diterima")
         ->with('kategori')
         ->get();
 
         $today = Prestasi::join('users','users.id_users','tbl_prestasi.id_users')
         ->where('users.nomor_rt',$user->nomor_rt)
+        // ->where('tbl_prestasi.status',"diterima")
         ->whereDate('tbl_prestasi.created_at',Carbon::today())
         ->count();
         $week = Prestasi::join('users','users.id_users','tbl_prestasi.id_users')
         ->where('users.nomor_rt',$user->nomor_rt)
+        // ->where('tbl_prestasi.status',"diterima")
         ->where('tbl_prestasi.created_at', '>', Carbon::now()->startOfWeek())
         ->where('tbl_prestasi.created_at', '<', Carbon::now()->endOfWeek())
         ->count();
         $month = Prestasi::join('users','users.id_users','tbl_prestasi.id_users')
         ->where('users.nomor_rt',$user->nomor_rt)
+        // ->where('tbl_prestasi.status',"diterima")
         ->whereMonth('tbl_prestasi.created_at',Carbon::now()->month)
         ->count();
         $notread = Prestasi::join('users','users.id_users','tbl_prestasi.id_users')
         ->where('users.nomor_rt',$user->nomor_rt)
+        // ->where('tbl_prestasi.status',"diterima")
         ->where('status','menunggu')
         ->count();
 
@@ -156,7 +161,7 @@ class PrestasiRtController extends Controller
         }
 
 
-        return redirect()->route('rt.dashboard-rt.index')->with('status', "berhasil edit data");
+        return redirect()->route('home')->with('status', "berhasil edit data");
 
     }
 
@@ -206,7 +211,7 @@ class PrestasiRtController extends Controller
         // return $prestasi;
         $prestasi->delete();
 
-        return redirect()->route('rt.dashboard-rt.index')->with('status', "berhasil hapus data");
+        return redirect()->route('home')->with('status', "berhasil hapus data");
 
     }
 }

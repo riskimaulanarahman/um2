@@ -25,7 +25,10 @@ class PrestasiController extends Controller
 
         $prestasi = Prestasi::select('tbl_prestasi.*','users.name','users.nomor_rt')
         ->join('users','users.id_users','tbl_prestasi.id_users')
+        ->with('kategori')
         ->get();
+
+        $kategorilist = Kategori::pluck('nama','id_kategori');
 
         $today = Prestasi::whereDate('created_at',Carbon::today())->count();
         $week = Prestasi::where('created_at', '>', Carbon::now()->startOfWeek())
@@ -42,6 +45,8 @@ class PrestasiController extends Controller
             'week' => $week,
             'month' => $month,
             'notread' => $notread,
+            'notread' => $notread,
+            'kategorilist' => $kategorilist
         ]);
     }
 
