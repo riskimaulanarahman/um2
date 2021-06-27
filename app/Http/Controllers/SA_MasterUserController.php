@@ -43,6 +43,9 @@ class SA_MasterUserController extends Controller
                 'nik' => 'required | unique:users',
                 'email' => 'required | unique:users',
                 'password' => 'required',
+                'alamat' => 'required',
+                'notelp' => 'required',
+                'nomor_rumah' => 'required',
                 'role' => 'required',
                 'nomor_rt' => 'required',
             ]);
@@ -50,11 +53,13 @@ class SA_MasterUserController extends Controller
             try{
                 $isRT = ($request->role == 'rt') ? 1:0;
 
+                // return $isRT;
+
                 $cekrt = SA_MasterUser::where('nomor_rt',$request->nomor_rt)->where('role','rt')->count();
 
-                // return $isrt;
+                // return $cekrt;
 
-                if($cekrt < 1) {
+                if($isRT == 0) {
 
                     $users = SA_MasterUser::create([
                         'name' => $request->name,
@@ -63,16 +68,38 @@ class SA_MasterUserController extends Controller
                         'password' => bcrypt($request->password),
                         'pass_txt' => $request->password,
                         'role' => $request->role,
+                        'alamat' => $request->alamat,
                         'notelp' => $request->notelp,
+                        'nomor_rumah' => $request->nomor_rumah,
                         'kode_kecamatan' => $request->kode_kecamatan,
                         'kode_kelurahan' => $request->kode_kelurahan,
                         'nomor_rt' => $request->nomor_rt,
-                        'isRT' => $isRT,
+                        'isRT' => 0,
                     ]);
 
                     $data = 'berhasil menambahkan';
-                } else {
-                    $data = 'Akun RT sudah ada';
+                } else if($isRT == 1) {
+                    if($cekrt < 1) {
+                        $users = SA_MasterUser::create([
+                            'name' => $request->name,
+                            'nik' => $request->nik,
+                            'email' => $request->email,
+                            'password' => bcrypt($request->password),
+                            'pass_txt' => $request->password,
+                            'role' => $request->role,
+                            'alamat' => $request->alamat,
+                            'notelp' => $request->notelp,
+                            'nomor_rumah' => $request->nomor_rumah,
+                            'kode_kecamatan' => $request->kode_kecamatan,
+                            'kode_kelurahan' => $request->kode_kelurahan,
+                            'nomor_rt' => $request->nomor_rt,
+                            'isRT' => 1,
+                        ]);
+    
+                        $data = 'RT berhasil menambahkan';
+                    } else {
+                        $data = 'Akun RT sudah ada';
+                    }
                 }
 
                 
