@@ -307,13 +307,13 @@
 <script>
 	// $('#data').hide();
 	
-	$('#cari').click(function(){
-		var inputval = $('#inputval').val();
-		$('#nav-data').trigger('click')
+	// $('#cari').click(function(){
+	// 	var inputval = $('#inputval').val();
+	// 	$('#nav-data').trigger('click')
 
-		$('#title-data').text('Hasil Pencarian');
-		console.log(inputval);
-	})
+	// 	$('#title-data').text('Hasil Pencarian');
+	// 	console.log(inputval);
+	// })
 
 	//show prestasi
 	function getprestasi() {
