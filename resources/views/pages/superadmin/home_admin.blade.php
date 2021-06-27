@@ -162,7 +162,7 @@
 	<div class="modal-dialog">
 		<form method="post" action="{{ route('rt.prestasiupdate') }}"  enctype="multipart/form-data">
 			{{ csrf_field() }}
-			<input type="text" name="idprestasi" id="idprestasi">
+			<input type="hidden" name="idprestasi" id="idprestasi">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title">Edit Prestasi</h4>

@@ -4,7 +4,7 @@ namespace Illuminate\Foundation\Auth;
 
 use App\Model\Kecamatan;
 use App\Model\Kelurahan;
-use App\Model\Rt;
+use App\Model\RT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -22,7 +22,7 @@ trait RegistersUsers
     {
         $kecamatan = Kecamatan::pluck('nama_kecamatan','kode_kecamatan');
         $kelurahan = Kelurahan::pluck('nama_kelurahan','kode_kelurahan');
-        $nort = Rt::pluck('nomor_rt','id');
+        $nort = RT::pluck('nomor_rt','id');
         return view('auth.register',[
             'kecamatan' => $kecamatan,
             'kelurahan' => $kelurahan,
