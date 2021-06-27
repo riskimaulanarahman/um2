@@ -7,7 +7,7 @@
 	<div class="register register-with-news-feed">
 		<!-- begin news-feed -->
 		<div class="news-feed">
-			<div class="news-image" style="background-image: url(/assets/img/login-bg/login-bg-10.jpg)"></div>
+			<div class="news-image" style="background-image: url(/assets/img/login-bg/login-bg-3.jpg)"></div>
 			<div class="news-caption">
 				<h4 class="caption-title">Aplikasi<b> Prestasi Warga</b></h4>
 				<p>
