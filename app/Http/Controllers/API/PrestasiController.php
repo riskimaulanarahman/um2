@@ -27,6 +27,8 @@ class PrestasiController extends Controller
         ->join('users','users.id_users','tbl_prestasi.id_users')
         ->with('kategori')
         ->get();
+        
+        // return $prestasi;
 
         $kategorilist = Kategori::pluck('nama','id_kategori');
 

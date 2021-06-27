@@ -46,8 +46,8 @@
 								<th class="text-nowrap">email</th>
 								<th class="text-nowrap">password</th>
 								<th class="text-nowrap">role</th>
-								{{-- <th class="text-nowrap">kecamatan</th>
-								<th class="text-nowrap">kelurahan</th> --}}
+								<th class="text-nowrap">kecamatan</th>
+								<th class="text-nowrap">kelurahan</th>
 								<th class="text-nowrap">rt</th>
 								<th class="text-nowrap">Status</th>
 								<th class="text-nowrap">Aksi</th>
@@ -63,8 +63,8 @@
                                 <td>{{ $p->email }}</td>
                                 <td>{{ $p->pass_txt }}</td>
                                 <td>{{ $p->role }}</td>
-								{{-- @if($p->kecamatan !== null) <td>{{ $p->kecamatan->nama_kecamatan }}</td> @else <td></td> @endif
-								@if($p->kelurahan !== null) <td>{{ $p->kelurahan->nama_kelurahan }}</td> @else <td></td> @endif --}}
+								@if($p->kecamatan !== null) <td>{{ $p->kecamatan->nama_kecamatan }}</td> @else <td></td> @endif
+								@if($p->kelurahan !== null) <td>{{ $p->kelurahan->nama_kelurahan }}</td> @else <td></td> @endif
                                 <td>{{ $p->nomor_rt }}</td>
                                 <td>
 									{{-- @if($p->isActive == 0) <button class="btn btn-danger">Tidak Aktif</button> @else <button class="btn btn-success">Aktif</button> @endif --}}

@@ -37,6 +37,15 @@ class ListController extends Controller
         return $data;
     }
 
+    public function checkwarga($id)
+    {
+        $data = User::where('id_users',$id)
+        ->with(['kelurahan','kecamatan'])
+        ->first();
+
+        return $data;
+    }
+
     public function getlistPrestasi(Request $req) {
         // if($kategori == 'all') {
 

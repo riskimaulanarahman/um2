@@ -37,6 +37,8 @@ Route::get('list-kelurahan','API\ListController@listKelurahan');
 Route::get('opt-kelurahan/{kelurahan}','API\ListController@optKelurahan');
 Route::get('opt-rt/{kelurahan}','API\ListController@optrt');
 
+Route::get('checkwarga/{id}','API\ListController@checkwarga');
+
 
 
 Route::get('list-prestasi/{kategori}','API\ListController@getlistPrestasi')->name('listprestasi');

@@ -64,8 +64,8 @@ class SA_MasterUserController extends Controller
                         'pass_txt' => $request->password,
                         'role' => $request->role,
                         'notelp' => $request->notelp,
-                        // 'kode_kecamatan' => $request->kode_kecamatan,
-                        // 'kode_kelurahan' => $request->kode_kelurahan,
+                        'kode_kecamatan' => $request->kode_kecamatan,
+                        'kode_kelurahan' => $request->kode_kelurahan,
                         'nomor_rt' => $request->nomor_rt,
                         'isRT' => $isRT,
                     ]);

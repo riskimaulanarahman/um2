@@ -129,7 +129,7 @@
 							@foreach($prestasi as $p)
                             <tr>
                                 <td class="text-center">{{ $no++ }}</td>
-                                <td>{{ $p->name }}</td>
+								<td><a href="#" onClick="checkwarga({{$p->id_users}});">{{ $p->name }}</a></td>
 								<td>{{ $p->kategori->nama }}</td>
                                 <td>{{ $p->keterangan }}</td>
                                 <td><a href="/upload/{{$p->file}}" onclick="window.open('/upload/{{$p->file}}','popup','width=600,height=600'); return false;">{{ $p->file }}</a> </td>
@@ -303,7 +303,26 @@
 </div>
 
 
+<div class="modal fade" id="modal-check-warga">
+	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Detail Warga</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				<div class="modal-body">
+					<ul id="checkwarga">
+						
+					</ul>
 
+				</div>
+				<div class="modal-footer">
+					<a href="javascript:;" class="btn btn-white" data-dismiss="modal">Close</a>
+					<button type="submit" class="btn btn-warning">Submit</button>
+				</div>
+			</div>
+	</div>
+</div>
 @endsection
 
 
@@ -331,4 +350,6 @@
 	<script src="/assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 	<script src="/assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 	<script src="/assets/js/demo/table-manage-responsive.demo.js"></script>
+	<script src="/assets/js/checkwarga.js"></script>
+
 @endpush
