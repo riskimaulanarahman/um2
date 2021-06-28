@@ -45,7 +45,7 @@ class SA_MasterUserController extends Controller
                 'password' => 'required',
                 'alamat' => 'required',
                 'notelp' => 'required',
-                'nomor_rumah' => 'required',
+                // 'nomor_rumah' => 'required',
                 'role' => 'required',
                 'nomor_rt' => 'required',
             ]);
@@ -144,6 +144,7 @@ class SA_MasterUserController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'notelp' => $request->notelp,
+            'nomor_rumah' => $request->nomor_rumah,
             'kode_kecamatan' => $request->kode_kecamatan,
             'kode_kelurahan' => $request->kode_kelurahan,
             'nomor_rt' => $request->nomor_rt,

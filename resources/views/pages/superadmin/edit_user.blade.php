@@ -86,6 +86,17 @@
                                     @endif
                                 </div>
                             </div>
+                            <label class="control-label">nomor rumah <span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('nomor_rumah') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    <input type="text" id="nomor_rumah" name="nomor_rumah" class="form-control" placeholder="nomor_rumah" value="{{ $user->nomor_rumah }}"  />
+                                    @if ($errors->has('nomor_rumah'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('nomor_rumah') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
                             <label class="control-label">role <span class="text-danger">*</span></label>
                             <div class="row row-space-10 {{ $errors->has('role') ? ' has-error' : '' }}">
                                 <div class="col-md-12 m-b-15">
