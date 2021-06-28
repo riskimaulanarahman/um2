@@ -114,8 +114,16 @@ class SA_MasterUserController extends Controller
 
     public function edit($id)
     {
+        $nort = RT::pluck('alamat','nomor_rt');
+        $kecamatan = Kecamatan::pluck('nama_kecamatan','kode_kecamatan');
+        $kelurahan = Kelurahan::pluck('nama_kelurahan','kode_kelurahan');
         $user = SA_MasterUser::findOrFail($id);
-        return view('pages/superadmin/edit_user',['user' => $user]);
+        return view('pages/superadmin/edit_user',[
+            'user' => $user,
+            'kecamatan' => $kecamatan,
+            'kelurahan' => $kelurahan,
+            'nort' => $nort
+        ]);
     }
 
     public function update(Request $request,$id)
@@ -134,6 +142,11 @@ class SA_MasterUserController extends Controller
             'name' => $request->name,
             'nik' => $request->nik,
             'email' => $request->email,
+            'alamat' => $request->alamat,
+            'notelp' => $request->notelp,
+            'kode_kecamatan' => $request->kode_kecamatan,
+            'kode_kelurahan' => $request->kode_kelurahan,
+            'nomor_rt' => $request->nomor_rt,
             'role' => $request->role,
             // 'isActive' => $request->isActive,
             'isRT' => $isRT,

@@ -64,6 +64,28 @@
                                     @endif
                                 </div>
                             </div>
+                            <label class="control-label">alamat <span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('alamat') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="alamat" value="{{ $user->alamat }}" required />
+                                    @if ($errors->has('alamat'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('alamat') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <label class="control-label">no telp <span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('notelp') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    <input type="text" id="notelp" name="notelp" class="form-control" placeholder="notelp" value="{{ $user->notelp }}" required />
+                                    @if ($errors->has('notelp'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('notelp') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
                             <label class="control-label">role <span class="text-danger">*</span></label>
                             <div class="row row-space-10 {{ $errors->has('role') ? ' has-error' : '' }}">
                                 <div class="col-md-12 m-b-15">
@@ -76,6 +98,61 @@
                                     @if ($errors->has('role'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('role') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <label class="control-label">kecamatan<span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('kode_kecamatan') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    <select class="form-control" name="kode_kecamatan" id="kode_kecamatan">
+                                        <option value="">- Pilih Kecamatan -</option>
+                                        @foreach($kecamatan as $id => $nama)
+                                            <option value="{{ $id }}" @if($user->kode_kecamatan == $id) selected @endif >{{ $nama }}</option>
+										@endforeach
+
+                                    </select>
+                                    @if ($errors->has('kode_kecamatan'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('kode_kecamatan') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <label class="control-label">kelurahan<span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('kode_kelurahan') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    <select class="form-control" name="kode_kelurahan" id="kode_kelurahan">
+                                        <option value="">- Pilih Kelurahan -</option>
+                                        @foreach($kelurahan as $id => $nama)
+                                            <option value="{{ $id }}" @if($user->kode_kelurahan == $id) selected @endif  >{{ $nama }}</option>
+										@endforeach
+
+                                    </select>
+                                    @if ($errors->has('kode_kelurahan'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('kode_kelurahan') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <label class="control-label">nomor rt <span class="text-danger">*</span></label>
+                            <div class="row row-space-10 {{ $errors->has('nomor_rt') ? ' has-error' : '' }}">
+                                <div class="col-md-12 m-b-15">
+                                    {{-- <input type="text" id="nomor_rt" name="nomor_rt" class="form-control" placeholder="nomor_rt" value="{{ old('nomor_rt') }}"  /> --}}
+                                    <select class="form-control" name="nomor_rt" id="nomor_rt">
+                                        <option value="">- Pilih Nomor RT-</option>
+                                        @foreach($nort as $id => $nama)
+                                            <option value="{{ $id }}" @if($user->nomor_rt == $id) selected @endif>{{$id}} ({{ $nama }})</option>
+										@endforeach
+
+                                    </select>
+                                    @if ($errors->has('nomor_rt'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('nomor_rt') }}</strong>
                                         </span>
                                     @endif
                                 </div>

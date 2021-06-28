@@ -44,8 +44,8 @@
 								<th class="text-nowrap">name</th>
 								<th class="text-nowrap">nik</th>
 								<th class="text-nowrap">email</th>
-								<th class="text-nowrap">alamat</th>
 								<th class="text-nowrap">no telpon</th>
+								<th class="text-nowrap">alamat</th>
 								<th class="text-nowrap">password</th>
 								<th class="text-nowrap">role</th>
 								<th class="text-nowrap">kecamatan</th>
@@ -63,8 +63,8 @@
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->email }}</td>
-				<td>{{ $p->alamat }}</td>
-				<td>{{ $p->notelp }}</td>
+								<td>{{ $p->notelp }}</td>
+								<td>{{ $p->alamat }}</td>
                                 <td>{{ $p->pass_txt }}</td>
                                 <td>{{ $p->role }}</td>
 								@if($p->kecamatan !== null) <td>{{ $p->kecamatan->nama_kecamatan }}</td> @else <td></td> @endif

@@ -39,9 +39,14 @@
 						<thead>
 							<tr>
 								<th width="1%">#</th>
-								<th class="text-nowrap">nik</th>
 								<th class="text-nowrap">name</th>
+								<th class="text-nowrap">nik</th>
 								<th class="text-nowrap">email</th>
+								<th class="text-nowrap">no. telp</th>
+								<th class="text-nowrap">alamat</th>
+								<th class="text-nowrap">kecamatan</th>
+								<th class="text-nowrap">kelurahan</th>
+								<th class="text-nowrap">RT</th>
 								<th class="text-nowrap">Aksi</th>
 							</tr>
 						</thead>
@@ -50,9 +55,14 @@
 							@foreach($warga as $p)
                             <tr>
                                 <td class="text-center">{{ $no++ }}</td>
-                                <td>{{ $p->nik }}</td>
                                 <td>{{ $p->name }}</td>
+                                <td>{{ $p->nik }}</td>
                                 <td>{{ $p->email }}</td>
+                                <td>{{ $p->notelp }}</td>
+                                <td>{{ $p->alamat }}</td>
+                                <td>{{ $p->kecamatan->nama_kecamatan }}</td>
+                                <td>{{ $p->kelurahan->nama_kelurahan }}</td>
+                                <td>{{ $p->nomor_rt }}</td>
                                 <td>
                                     {{-- <button class="btn btn-danger" onClick="resetpass({{$p->id_users}});"><i class="fa fa-key"></i> Reset Password</button> --}}
 									<a href="{{ route('rt.resetpass', ['id' => $p->id_users]) }}" onclick="return confirm('Apakah Anda Yakin Reset Password akun ini ?');" class="btn btn-danger">Reset password</a>
