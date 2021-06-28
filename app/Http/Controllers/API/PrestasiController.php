@@ -37,7 +37,7 @@ class PrestasiController extends Controller
             ->where('created_at', '<', Carbon::now()->endOfWeek())
             ->count();
         $month = Prestasi::whereMonth('created_at',Carbon::now()->month)->count();
-        $notread = Prestasi::where('status','menunggu')->count();
+        $notread = Prestasi::count();
 
         // return $prestasi;
 
