@@ -154,7 +154,8 @@
 								<div style="height:100px; overflow: scroll; border-style:groove;">
 								<ul class="p-5" style="font-size:11px; text-align:left;" id="">
 									@foreach($p->prestasi as $pres)
-										<li><a href="/upload/{{$pres->file}}" target="_blank"><i class="fa fa-eye"></i></a> {{$pres->keterangan}}</li>
+									<li> {{$pres->keterangan}}</li>
+									{{-- <li><a href="/upload/{{$pres->file}}" target="_blank"><i class="fa fa-eye"></i></a> {{$pres->keterangan}}</li> --}}
 									@endforeach
 								</ul>
 								{{-- <button data-toggle="tooltip" id="belajar_'+y.id_users+'" data-title="Belajar"><i class="fa fa-book fa-lg fa-fw"></i></button>
@@ -184,47 +185,43 @@
 			<!-- begin container -->
 			<div class="container">
 				<!-- begin row -->
-				<div class="row">
-					<!-- begin col-3 -->
-					<div class="col-lg-3 milestone-col">
+				<div class="row" id="div-prestasi">
+					{{-- <div class="col-lg-2 milestone-col">
 						<div class="milestone">
 							<div id="count-belajar" class="number">0</div>
 							<div class="title">Belajar</div>
 						</div>
 					</div>
-					<!-- end col-3 -->
-					<!-- begin col-3 -->
-					<div class="col-lg-3 milestone-col">
+					
+					<div class="col-lg-2 milestone-col">
 						<div class="milestone">
 							<div id="count-kerja" class="number">0</div>
 							<div class="title">Kerja</div>
 						</div>
 					</div>
-					<!-- end col-3 -->
-					<!-- begin col-3 -->
+					
 					<div class="col-lg-2 milestone-col">
 						<div class="milestone">
 							<div id="count-seni" class="number">0</div>
 							<div class="title">Seni</div>
 						</div>
 					</div>
-					<!-- end col-3 -->
-					<!-- begin col-3 -->
+					
 					<div class="col-lg-2 milestone-col">
 						<div class="milestone">
 							<div id="count-olahraga" class="number">0</div>
 							<div class="title">Olahraga</div>
 						</div>
 					</div>
-					<!-- end col-3 -->
-					<!-- begin col-3 -->
+					
 					<div class="col-lg-2 milestone-col">
 						<div class="milestone">
 							<div id="count-lingkungan" class="number">0</div>
 							<div class="title">Lingkungan</div>
 						</div>
-					</div>
-					<!-- end col-3 -->
+					</div> --}}
+					
+					
 				</div>
 				<!-- end row -->
 			</div>
@@ -361,15 +358,21 @@
 	//end show prestasi
 
 	//show count prestasi
-	$.getJSON('/api/count-prestasi',function(data){
-		// console.log(data);
-		// $('#count-belajar').data('final-number', '100');
-		$('#count-belajar').text(data.belajar);
-		$('#count-kerja').text(data.kerja);
-		$('#count-seni').text(data.seni);
-		$('#count-olahraga').text(data.olahraga);
-		$('#count-lingkungan').text(data.lingkungan);
+$.getJSON('/api/count-prestasi',function(data){
+	$.each(data,function(x,y){
+	console.log(y)
+	$.each(y,function(m,n){
+		$('#div-prestasi').append(
+		'<div class="col-lg-2 milestone-col"><div class="milestone"><div class="number">'+n+'</div><div class="title">'+m+'</div></div></div>')
 	})
+	});
+	// $('#count-belajar').data('final-number', '100');
+	// $('#count-belajar').text(data.belajar);
+	// $('#count-kerja').text(data.kerja);
+	// $('#count-seni').text(data.seni);
+	// $('#count-olahraga').text(data.olahraga);
+	// $('#count-lingkungan').text(data.lingkungan);
+})
 
 	//end show count prestasi
 

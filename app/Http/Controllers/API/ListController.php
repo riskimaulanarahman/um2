@@ -6,6 +6,7 @@ use App\Model\Kecamatan;
 use App\Model\Kelurahan;
 use App\Model\RT;
 use App\Model\Prestasi;
+use App\Model\Kategori;
 use App\Model\SA_MasterUser as User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -128,20 +129,32 @@ class ListController extends Controller
 
     public function countPrestasi()
     {
-        $belajar = Prestasi::where('id_kategori',1)->where('status','diterima')->count();
-        $kerja = Prestasi::where('id_kategori',2)->where('status','diterima')->count();
-        $seni = Prestasi::where('id_kategori',3)->where('status','diterima')->count();
-        $olahraga = Prestasi::where('id_kategori',4)->where('status','diterima')->count();
-        $lingkungan = Prestasi::where('id_kategori',5)->where('status','diterima')->count();
+        $kategori = Kategori::all();
 
-        $data = [
-            "belajar" => $belajar,
-            "kerja" => $kerja,
-            "seni" => $seni,
-            "olahraga" => $olahraga,
-            "lingkungan" => $lingkungan,
-        ];
+        $dataprestasi = [];
 
-        return $data;
+        foreach($kategori as $key => $p) {
+            $key = Prestasi::where('id_kategori',$p['id_kategori'])->where('status','diterima')->count();
+
+            // $data[$p['id_kategori']] = $prestasi.$p['id_kategori'];
+            array_push($dataprestasi, [$p['nama'] => $key]);
+            
+        }
+
+        return json_encode($dataprestasi);
+        // $belajar = Prestasi::where('id_kategori',1)->where('status','diterima')->count();
+        // $kerja = Prestasi::where('id_kategori',2)->where('status','diterima')->count();
+        // $seni = Prestasi::where('id_kategori',3)->where('status','diterima')->count();
+        // $olahraga = Prestasi::where('id_kategori',4)->where('status','diterima')->count();
+        // $lingkungan = Prestasi::where('id_kategori',5)->where('status','diterima')->count();
+
+        // $data = [
+        //     "belajar" => $belajar,
+        //     "kerja" => $kerja,
+        //     "seni" => $seni,
+        //     "olahraga" => $olahraga,
+        //     "lingkungan" => $lingkungan,
+        // ];
+
     }
 }

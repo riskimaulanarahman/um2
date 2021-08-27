@@ -198,6 +198,22 @@
 						</div>
 					</div>
 
+					<label class="control-label">status <span class="text-danger">*</span></label>
+					<div class="row row-space-10 {{ $errors->has('status') ? ' has-error' : '' }}">
+						<div class="col-md-12 m-b-15">
+							<select class="form-control" name="status" id="status">
+								<option value="">-- pilih status --</option>
+								<option value="diterima">diterima</option>
+								<option value="ditolak">ditolak</option>
+							</select>
+							@if ($errors->has('status'))
+								<span class="help-block">
+									<strong>{{ $errors->first('status') }}</strong>
+								</span>
+							@endif
+						</div>
+					</div>
+
 					<label class="control-label">file </label>
 					<div class="row row-space-10 {{ $errors->has('file') ? ' has-error' : '' }}">
 						<div class="col-md-12 m-b-15">

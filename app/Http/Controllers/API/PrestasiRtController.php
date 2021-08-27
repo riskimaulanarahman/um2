@@ -147,6 +147,7 @@ class PrestasiRtController extends Controller
         $prestasi->update([
             'kategori' => $request->kategori,
             'keterangan' => $request->keterangan,
+            'status' => $request->status,
         ]);
 
         if(!empty($request->file)) {
